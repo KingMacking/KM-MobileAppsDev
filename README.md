@@ -7,4 +7,4 @@ __***[Challenge_2]***__ : Lista optimizada
 
 
 [Challenge_1]: <https://github.com/KingMacking/KM-MobileAppsDev/tree/Challenge_1>
-[Challenge_1]: <https://github.com/KingMacking/KM-MobileAppsDev/tree/Challenge_2>
+[Challenge_2]: <https://github.com/KingMacking/KM-MobileAppsDev/tree/Challenge_2>
