@@ -1,6 +1,15 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+    title: {
+        fontSize: 18,
+        borderBottomWidth: 1,
+        borderStyle: 'solid',
+        borderBottomColor: '#fcfcfc',
+        marginBottom: 15,
+        color: '#fcfcfc',
+        paddingVertical: 5,
+    },
     inputContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',

@@ -65,17 +65,15 @@ export default function App() {
     return (
         <SafeAreaView style={styles.safeArea}>
             <View style={styles.container}>
-                <View>
-                    <TaskInput
-                        borderColor={borderColor}
-                        handleBlur={handleBlur}
-                        handleFocus={handleFocus}
-                        handleAddTask={handleAddTask}
-                        handleChangeText={handleChangeText}
-                        task={task}
-                    />
-                    <TasksList renderItem={renderItem} tasksList={tasksList} />
-                </View>
+                <TaskInput
+                    borderColor={borderColor}
+                    handleBlur={handleBlur}
+                    handleFocus={handleFocus}
+                    handleAddTask={handleAddTask}
+                    handleChangeText={handleChangeText}
+                    task={task}
+                />
+                <TasksList renderItem={renderItem} tasksList={tasksList} />
                 <TaskDeleteConfirmation
                     isVisible={isVisible}
                     handleTaskDelete={handleTaskDelete}
