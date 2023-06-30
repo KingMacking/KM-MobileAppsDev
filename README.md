@@ -1,4 +1,4 @@
-# Desarrollo de aplicaciones - Coderhouse
+# Desafió N°2 - Lista optimizada
 
 Repositorio con los desafios entregables de la cursada.
 
