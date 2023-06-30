@@ -6,6 +6,9 @@ export const styles = StyleSheet.create({
         borderRadius: 5,
         paddingVertical: 15,
         paddingHorizontal: 10,
+        borderColor: 'transparent',
+        borderWidth: 1,
+        borderStyle: 'solid',
     },
     item: {
         fontSize: 16,
@@ -17,7 +20,7 @@ export const styles = StyleSheet.create({
         borderRadius: 5,
         paddingVertical: 15,
         paddingHorizontal: 10,
-        borderColor: '#E98102',
+        borderColor: '#23D555',
         borderWidth: 1,
         borderStyle: 'solid',
     },

@@ -2,10 +2,18 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     listContainer: {
-        marginVertical: 20,
+        marginBottom: 20,
+        marginTop: 10,
     },
     list: {
-        paddingBottom: 40,
-        gap: 15,
+        gap: 10,
+    },
+    listHeaderItem: {
+        fontSize: 18,
+        backgroundColor: '#171717',
+        color: '#fcfcfc',
+        paddingVertical: 10,
+        textAlign: 'center',
+        margin: 0,
     },
 });
