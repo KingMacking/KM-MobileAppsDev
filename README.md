@@ -1,8 +1,12 @@
-# Desafió N°3 - Switch y elementos externos
+# Desarrollo de aplicaciones
 
-## _**Consigna:**_
-- plicar lógica condicional que utilice estados para controlar la visualización de los componentes, e integrar fuentes externas.
-    - A partir de este ciclo de estilos y elementos, integra a tu proyecto un poco más de comportamiento lógico y visual:
-        - Renderizado condicional entre elementos (switch entre pantallas).
-        - Constantes compartidas.
-        - Fonts externos.
+Repositorio con los desafios entregables de la cursada.
+
+__***[Challenge_1]***__ : Crear aplicación Expo. <br>
+__***[Challenge_2]***__ : Lista optimizada. <br>
+__***[Challenge_3]***__ : Switch y elementos externos. <br>
+
+
+[Challenge_1]: <https://github.com/KingMacking/KM-MobileAppsDev/tree/Challenge_1>
+[Challenge_2]: <https://github.com/KingMacking/KM-MobileAppsDev/tree/Challenge_2>
+[Challenge_3]: <https://github.com/KingMacking/KM-MobileAppsDev/tree/Challenge_3>
