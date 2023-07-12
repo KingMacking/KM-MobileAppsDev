@@ -1,4 +1,6 @@
-import { StyleSheet, StatusBar } from 'react-native';
+import { StyleSheet } from 'react-native';
+
+import { COLORS } from './themes';
 
 export const styles = StyleSheet.create({
     safeArea: {
@@ -6,6 +8,12 @@ export const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        backgroundColor: '#171717',
+        backgroundColor: COLORS.base,
+    },
+    loaderContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: COLORS.base,
     },
 });
