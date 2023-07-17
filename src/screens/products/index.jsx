@@ -50,7 +50,13 @@ const Products = ({ categoryId, handleGoBack }) => {
                     borderColor={borderColor}
                 />
                 {search.length > 0 && (
-                    <Ionicons style={styles.clearInput} onPress={clearSearch} name="close-circle" size={36} color={COLORS.primary} />
+                    <Ionicons
+                        style={styles.clearInput}
+                        onPress={clearSearch}
+                        name="close-circle"
+                        size={36}
+                        color={COLORS.primary}
+                    />
                 )}
             </View>
             <FlatList
