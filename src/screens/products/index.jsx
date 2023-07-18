@@ -3,14 +3,16 @@ import { useState } from 'react';
 import { FlatList, View } from 'react-native';
 
 import { styles } from './styles';
-import { CustomText, GoBack, Input, ProductItem } from '../../components';
+import { CustomText, Input, ProductItem } from '../../components';
 import PRODUCTS from '../../constants/data/products.json';
 import { COLORS, FONTS } from '../../themes';
 
-const Products = ({ categoryId, handleGoBack }) => {
+const Products = ({ navigation, route }) => {
+    const { categoryId } = route.params;
     const [search, setSearch] = useState('');
     const [borderColor, setBorderColor] = useState(COLORS.grey);
     const [filteredProducts, setFilteredProducts] = useState([]);
+
     const handleFocus = () => {
         setBorderColor(COLORS.primary);
     };
@@ -37,9 +39,12 @@ const Products = ({ categoryId, handleGoBack }) => {
         setFilteredProducts(updatedProducts);
     };
 
+    const handleProductSelect = (prodId) => {
+        navigation.navigate('ProductDetail', { prodId });
+    };
+
     return (
         <View style={styles.container}>
-            <GoBack handleGoBack={handleGoBack} />
             <View style={styles.inputContainer}>
                 <Input
                     handleBlur={handleBlur}
@@ -61,7 +66,7 @@ const Products = ({ categoryId, handleGoBack }) => {
             </View>
             <FlatList
                 data={search.length > 0 ? filteredProducts : categoryProducts}
-                renderItem={({ item }) => <ProductItem product={item} />}
+                renderItem={({ item }) => <ProductItem product={item} handleProductSelect={handleProductSelect} />}
                 keyExtractor={(item) => item.id.toString()}
                 style={styles.listContainer}
                 contentContainerStyle={styles.list}

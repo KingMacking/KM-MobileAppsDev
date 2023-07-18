@@ -5,6 +5,7 @@ import { COLORS } from '../../themes';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginVertical: 15,
     },
     inputContainer: {
         flexDirection: 'row',

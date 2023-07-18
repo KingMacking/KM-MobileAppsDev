@@ -1,12 +1,12 @@
-import { Image, View } from 'react-native';
+import { Image, TouchableOpacity, View } from 'react-native';
 
 import { styles } from './style';
 import { FONTS } from '../../../themes';
 import CustomText from '../../CustomText';
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, handleProductSelect }) => {
     return (
-        <View style={styles.container}>
+        <TouchableOpacity onPress={() => handleProductSelect(product.id)} style={styles.container}>
             <Image resizeMode="cover" style={styles.image} source={{ uri: product.image }} />
             <View style={styles.information}>
                 <CustomText numberOfLines={1} font={FONTS.light} styles={styles.name}>
@@ -21,7 +21,7 @@ const ProductItem = ({ product }) => {
                     </CustomText>
                 </View>
             </View>
-        </View>
+        </TouchableOpacity>
     );
 };
 export default ProductItem;
