@@ -27,9 +27,6 @@ const TabsNavigator = () => {
                     paddingVertical: 5,
                 },
                 tabBarActiveTintColor: COLORS.primary,
-                tabBarIconStyle: {
-                    fontSize: 26,
-                },
             }}
         >
             <BottomTab.Screen

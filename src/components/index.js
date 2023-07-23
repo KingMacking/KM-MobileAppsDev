@@ -4,3 +4,4 @@ export { default as ProductFeatures } from './Products/ProductFeatures/index';
 export { default as ProductTags } from './Products/ProductTags/index';
 export { default as Input } from './Input/index';
 export { default as CustomText } from './CustomText/index';
+export { default as CartItem } from './Cart/CartItem/index';
