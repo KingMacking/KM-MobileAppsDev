@@ -1,13 +1,21 @@
-import { Image, ScrollView, View } from 'react-native';
+import { Image, ScrollView, TouchableOpacity, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { styles } from './styles';
 import { CustomText, ProductFeatures, ProductTags } from '../../components';
-import PRODUCTS from '../../constants/data/products.json';
+import { addToCart } from '../../store/cart/cart.slice';
 import { FONTS } from '../../themes';
 
 const ProductDetail = ({ navigation, route }) => {
     const { prodId } = route.params;
-    const product = PRODUCTS.find((prod) => prod.id === prodId);
+    const products = useSelector((state) => state.products.data);
+    const product = products.find((prod) => prod.id === prodId);
+    const dispatch = useDispatch();
+
+    const handleAddToCart = () => {
+        dispatch(addToCart(product));
+    };
+
     return (
         <ScrollView nestedScrollEnabled style={styles.container} contentContainerStyle={styles.productDetailContainer}>
             <View style={styles.productDetailItem}>
@@ -26,11 +34,11 @@ const ProductDetail = ({ navigation, route }) => {
                             {product.currency.code}
                         </CustomText>
                     </View>
-                    <View style={styles.buyCTA}>
+                    <TouchableOpacity onPress={handleAddToCart} style={styles.buyCTA}>
                         <CustomText font={FONTS.medium} styles={styles.buyBtn}>
-                            Buy now
+                            Add to cart
                         </CustomText>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.infoContainer}>
                     <View>

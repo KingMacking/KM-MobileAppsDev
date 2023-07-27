@@ -1,11 +1,18 @@
 import { Ionicons } from '@expo/vector-icons';
 import { View, Image } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 import { styles } from './styles';
+import { removeFromCart } from '../../../store/cart/cart.slice';
 import { FONTS } from '../../../themes';
 import CustomText from '../../CustomText';
 
 const CartItem = ({ product }) => {
+    const dispatch = useDispatch();
+    const handleRemoveFromCart = () => {
+        dispatch(removeFromCart(product));
+    };
+
     return (
         <View style={styles.container}>
             <Image resizeMode="cover" style={styles.image} source={{ uri: product.image }} />
@@ -31,7 +38,7 @@ const CartItem = ({ product }) => {
                     </View>
                 </View>
             </View>
-            <Ionicons name="close-circle" style={styles.removeBtn} />
+            <Ionicons onPress={handleRemoveFromCart} name="close-circle" style={styles.removeBtn} />
         </View>
     );
 };

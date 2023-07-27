@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-import { COLORS } from '../../themes';
+import { COLORS, FONTS } from '../../themes';
 
 export const styles = StyleSheet.create({
     container: {
@@ -44,6 +44,7 @@ export const styles = StyleSheet.create({
         borderRadius: 8,
     },
     buyBtn: {
+        fontFamily: FONTS.medium,
         fontSize: 28,
     },
     priceContainer: {

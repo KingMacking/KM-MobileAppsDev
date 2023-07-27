@@ -1,16 +1,17 @@
 import { FlatList } from 'react-native';
+import { useSelector } from 'react-redux';
 
 import { styles } from './styles';
 import { CategoryItem } from '../../components';
-import CATEGORIES from '../../constants/data/categories.json';
 
 const Categories = ({ navigation }) => {
+    const categories = useSelector((state) => state.categories.data);
     const handleCategorySelect = ({ categoryId, categoryName }) => {
         navigation.navigate('Products', { categoryId, categoryName });
     };
     return (
         <FlatList
-            data={CATEGORIES}
+            data={categories}
             renderItem={({ item }) => (
                 <CategoryItem
                     {...item}

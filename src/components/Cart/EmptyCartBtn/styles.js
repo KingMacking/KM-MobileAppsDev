@@ -1,19 +1,8 @@
 import { StyleSheet } from 'react-native';
 
-import { COLORS } from '../../themes';
+import { COLORS } from '../../../themes';
 
 export const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        paddingHorizontal: 10,
-    },
-    listContainer: {
-        paddingHorizontal: 10,
-    },
-    list: {
-        gap: 15,
-        paddingVertical: 15,
-    },
     emptyCartBtn: {
         backgroundColor: COLORS.primary,
         paddingVertical: 8,
@@ -25,11 +14,5 @@ export const styles = StyleSheet.create({
     emptyCartBtnText: {
         fontSize: 20,
         textAlign: 'center',
-    },
-    cartIsEmptyText: {
-        color: 'white',
-        marginTop: 80,
-        textAlign: 'center',
-        fontSize: 18,
     },
 });
