@@ -77,4 +77,10 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 12,
         borderRadius: 8,
     },
+    loaderContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: COLORS.base,
+    },
 });
