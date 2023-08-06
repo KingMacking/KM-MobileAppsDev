@@ -2,12 +2,13 @@ import { FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { styles } from './styles';
-import { CartItem, CustomText, EmptyCartBtn } from '../../components';
-import { decreaseQuantity, increaseQuantity, removeFromCart } from '../../store/cart/cart.slice';
+import { CartFooter, CartItem, CustomText } from '../../components';
+import { decreaseQuantity, emptyCart, increaseQuantity, removeFromCart } from '../../store/cart/cart.slice';
 import { FONTS } from '../../themes';
 
 const Cart = () => {
     const cart = useSelector((state) => state.cart.items);
+    const total = useSelector((state) => state.cart.total);
     const dispatch = useDispatch();
 
     const handleIncreaseQuantity = (id) => {
@@ -20,6 +21,10 @@ const Cart = () => {
 
     const handleRemoveFromCart = (id) => {
         dispatch(removeFromCart({ id }));
+    };
+
+    const handleEmptyCart = () => {
+        dispatch(emptyCart());
     };
     if (cart.length > 0) {
         return (
@@ -36,7 +41,7 @@ const Cart = () => {
                 keyExtractor={(item) => item.id.toString()}
                 style={styles.container}
                 contentContainerStyle={styles.list}
-                ListFooterComponent={EmptyCartBtn}
+                ListFooterComponent={<CartFooter handleEmptyCart={handleEmptyCart} total={total} currency="USD" />}
             />
         );
     }
