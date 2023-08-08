@@ -4,7 +4,7 @@ import { styles } from './styles';
 import { FONTS } from '../../../themes';
 import CustomText from '../../CustomText';
 
-const CartFooter = ({ handleEmptyCart, handleCheckout, total, currency }) => {
+const CartFooter = ({ handleEmptyCart, handleCreateOrder, total, currency }) => {
     return (
         <View style={styles.cartFooterContainer}>
             <View style={styles.totalContainer}>
@@ -21,12 +21,12 @@ const CartFooter = ({ handleEmptyCart, handleCheckout, total, currency }) => {
                 </View>
             </View>
             <View style={styles.buttonsContainer}>
-                <TouchableOpacity style={styles.emptyCartBtn} onPress={() => handleEmptyCart}>
+                <TouchableOpacity style={styles.emptyCartBtn} onPress={handleEmptyCart}>
                     <CustomText font={FONTS.medium} styles={styles.emptyCartBtnText}>
                         Empty cart
                     </CustomText>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.checkoutBtn} onPress={() => handleCheckout}>
+                <TouchableOpacity style={styles.checkoutBtn} onPress={handleCreateOrder}>
                     <CustomText font={FONTS.medium} styles={styles.checkoutBtnText}>
                         Checkout
                     </CustomText>
