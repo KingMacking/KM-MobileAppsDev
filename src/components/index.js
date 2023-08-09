@@ -6,4 +6,6 @@ export { default as Input } from './Input/index';
 export { default as CustomText } from './CustomText/index';
 export { default as CartItem } from './Cart/CartItem/index';
 export { default as CartFooter } from './Cart/CartFooter/index';
-export { default as SettingsBtn } from './SettingsBtn/index';
+export { default as SettingsBtn } from './Settings/SettingsBtn/index';
+export { default as SettingsGoBackBtn } from './Settings/SettingsGoBackBtn/index';
+export { default as SettingsItem } from './Settings/SettingsItem/index';

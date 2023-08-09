@@ -5,3 +5,5 @@ export { default as Cart } from './cart/index';
 export { default as Orders } from './orders/index';
 export { default as AuthScreen } from './auth/index';
 export { default as Settings } from './settings/index';
+export { default as Profile } from './profile/index';
+export { default as Adress } from './adress/index';

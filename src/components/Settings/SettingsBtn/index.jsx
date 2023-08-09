@@ -1,12 +1,11 @@
 import { Ionicons } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native';
 
-import { styles } from './styles';
-import { COLORS } from '../../themes';
+import { COLORS } from '../../../themes';
 
 const SettingsBtn = ({ navigation }) => {
     return (
-        <TouchableOpacity style={styles.icon}>
+        <TouchableOpacity>
             <Ionicons
                 name="settings-outline"
                 size={24}
