@@ -2,6 +2,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { Categories, ProductDetail, Products } from '../screens';
 import { COLORS, FONTS } from '../themes';
+import { SettingsBtn } from '../components';
+import SettingsNavigator from './settings';
 
 const Stack = createNativeStackNavigator();
 
@@ -9,7 +11,7 @@ const ShopNavigator = () => {
     return (
         <Stack.Navigator
             initialRouteName="Categories"
-            screenOptions={{
+            screenOptions={({ navigation }) => ({
                 contentStyle: { backgroundColor: COLORS.base },
                 headerStyle: { backgroundColor: COLORS.baseLight },
                 headerTintColor: COLORS.white,
@@ -18,7 +20,8 @@ const ShopNavigator = () => {
                     fontFamily: FONTS.bold,
                 },
                 animation: 'fade_from_bottom',
-            }}
+                headerRight: () => <SettingsBtn navigation={navigation} />,
+            })}
         >
             <Stack.Screen name="Categories" component={Categories} />
             <Stack.Screen
@@ -34,6 +37,11 @@ const ShopNavigator = () => {
                 options={() => ({
                     title: 'Product',
                 })}
+            />
+            <Stack.Screen
+                name="SettingsStack"
+                component={SettingsNavigator}
+                options={() => ({ title: 'Settings', headerRight: null })}
             />
         </Stack.Navigator>
     );

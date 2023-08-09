@@ -4,3 +4,4 @@ export { default as ProductDetail } from './productDetail/index';
 export { default as Cart } from './cart/index';
 export { default as Orders } from './orders/index';
 export { default as AuthScreen } from './auth/index';
+export { default as Settings } from './settings/index';

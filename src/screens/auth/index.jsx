@@ -20,7 +20,6 @@ const AuthScreen = () => {
     const messageText = isLogin ? 'Need an account?' : 'Already have an account?';
 
     const [signIn, { data }] = useSignInMutation();
-    console.warn({ data });
     const [signUp] = useSignUpMutation();
     const handleFocus = (type) => {
         if (type === 'email') {
@@ -46,7 +45,7 @@ const AuthScreen = () => {
                 await signUp({ email, password });
             }
         } catch (error) {
-            console.error(error);
+            console.error({ error });
         }
     };
     return (

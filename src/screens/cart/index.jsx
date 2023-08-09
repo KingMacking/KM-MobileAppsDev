@@ -49,7 +49,7 @@ const Cart = ({ navigation }) => {
             dispatch(emptyCart());
             navigation.navigate('OrdersTabs');
         } catch (error) {
-            console.warn({ error });
+            console.error({ error });
         }
     };
     if (cart.length > 0) {
