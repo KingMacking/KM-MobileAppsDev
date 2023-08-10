@@ -1,18 +1,11 @@
 import { Ionicons } from '@expo/vector-icons';
 import { View, Image } from 'react-native';
-import { useDispatch } from 'react-redux';
 
 import { styles } from './styles';
-import { removeFromCart } from '../../../store/cart/cart.slice';
 import { FONTS } from '../../../themes';
 import CustomText from '../../CustomText';
 
-const CartItem = ({ product }) => {
-    const dispatch = useDispatch();
-    const handleRemoveFromCart = () => {
-        dispatch(removeFromCart(product));
-    };
-
+const CartItem = ({ product, handleRemoveFromCart, handleDecreaseQuantity, handleIncreaseQuantity }) => {
     return (
         <View style={styles.container}>
             <Image resizeMode="cover" style={styles.image} source={{ uri: product.image }} />
@@ -30,15 +23,23 @@ const CartItem = ({ product }) => {
                         </CustomText>
                     </View>
                     <View style={styles.quantityContainer}>
-                        <Ionicons name="add-circle" style={styles.increaseBtn} />
+                        <Ionicons
+                            onPress={() => handleIncreaseQuantity(product.id)}
+                            name="add-circle"
+                            style={styles.increaseBtn}
+                        />
                         <CustomText font={FONTS.regular} styles={styles.quantity}>
                             {product.quantity}
                         </CustomText>
-                        <Ionicons name="remove-circle" style={styles.decreaseBtn} />
+                        <Ionicons
+                            onPress={() => handleDecreaseQuantity(product.id)}
+                            name="remove-circle"
+                            style={styles.decreaseBtn}
+                        />
                     </View>
                 </View>
             </View>
-            <Ionicons onPress={handleRemoveFromCart} name="close-circle" style={styles.removeBtn} />
+            <Ionicons onPress={() => handleRemoveFromCart(product.id)} name="close-circle" style={styles.removeBtn} />
         </View>
     );
 };

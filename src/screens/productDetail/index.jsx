@@ -1,20 +1,29 @@
-import { Image, ScrollView, TouchableOpacity, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { ActivityIndicator, Image, ScrollView, TouchableOpacity, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 import { styles } from './styles';
 import { CustomText, ProductFeatures, ProductTags } from '../../components';
 import { addToCart } from '../../store/cart/cart.slice';
-import { FONTS } from '../../themes';
+import { useGetProductByIdQuery } from '../../store/products/api';
+import { COLORS, FONTS } from '../../themes';
 
 const ProductDetail = ({ navigation, route }) => {
     const { prodId } = route.params;
-    const products = useSelector((state) => state.products.data);
-    const product = products.find((prod) => prod.id === prodId);
     const dispatch = useDispatch();
+    const { data, isLoading } = useGetProductByIdQuery(prodId);
+    const product = data?.find((prod) => prod.id === prodId);
 
     const handleAddToCart = () => {
         dispatch(addToCart(product));
     };
+
+    if (isLoading) {
+        return (
+            <View style={styles.loaderContainer}>
+                <ActivityIndicator color={COLORS.primary} size="large" />
+            </View>
+        );
+    }
 
     return (
         <ScrollView nestedScrollEnabled style={styles.container} contentContainerStyle={styles.productDetailContainer}>
