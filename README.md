@@ -1,5 +1,3 @@
-# Desafió N°5 - Tab Navigation & Redux
-
 Repositorio con los desafios entregables de la cursada.
 
 __***[Challenge_1]***__ : Crear aplicación Expo. <br>
