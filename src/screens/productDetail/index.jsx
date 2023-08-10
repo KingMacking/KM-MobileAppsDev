@@ -10,7 +10,7 @@ import { COLORS, FONTS } from '../../themes';
 const ProductDetail = ({ navigation, route }) => {
     const { prodId } = route.params;
     const dispatch = useDispatch();
-    const { data, error, isLoading } = useGetProductByIdQuery(prodId);
+    const { data, isLoading } = useGetProductByIdQuery(prodId);
     const product = data?.find((prod) => prod.id === prodId);
 
     const handleAddToCart = () => {

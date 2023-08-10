@@ -9,3 +9,4 @@ export { default as CartFooter } from './Cart/CartFooter/index';
 export { default as SettingsBtn } from './Settings/SettingsBtn/index';
 export { default as SettingsGoBackBtn } from './Settings/SettingsGoBackBtn/index';
 export { default as SettingsItem } from './Settings/SettingsItem/index';
+export { default as ProfilePicture } from './Profile/ProfilePicture/index';
