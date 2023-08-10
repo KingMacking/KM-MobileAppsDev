@@ -23,6 +23,12 @@
         {
           "photoPermission": "The app acces your pictures to share them."
         }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow the app to use your location"
+        }
       ]
     ],
     "android": {

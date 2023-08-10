@@ -33,7 +33,22 @@ export const settingsApi = createApi({
             },
             invalidatesTags: ['Profile'],
         }),
+        updateAddress: builder.mutation({
+            query: ({ localId, location }) => ({
+                url: `/users/${localId}.json`,
+                method: 'PATCH',
+                body: {
+                    location,
+                },
+            }),
+            invalidatesTags: ['Profile'],
+        }),
     }),
 });
 
-export const { useGetProfileQuery, useUploadProfilePictureMutation, useRegisterUserDataMutation } = settingsApi;
+export const {
+    useGetProfileQuery,
+    useUploadProfilePictureMutation,
+    useRegisterUserDataMutation,
+    useUpdateAddressMutation,
+} = settingsApi;

@@ -1,12 +1,16 @@
+import { useState } from 'react';
 import { View } from 'react-native';
 
-import { CustomText } from '../../components';
-import { FONTS } from '../../themes';
+import { LocationSelection } from '../../components';
 
 const Adress = () => {
+    const [location, setLocation] = useState(null);
+    const handleLocation = () => {
+        setLocation(location);
+    };
     return (
         <View>
-            <CustomText font={FONTS.regular}>Hola</CustomText>
+            <LocationSelection handleLocation={handleLocation} />
         </View>
     );
 };

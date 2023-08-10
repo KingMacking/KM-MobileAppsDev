@@ -47,11 +47,10 @@ export const styles = StyleSheet.create({
         fontFamily: FONTS.regular,
     },
     linkContainer: {
-        width: '100%',
         marginVertical: 15,
+        alignSelf: 'center',
     },
     linkBtnText: {
-        width: '100%',
         color: COLORS.white,
         textAlign: 'center',
     },
@@ -66,5 +65,14 @@ export const styles = StyleSheet.create({
         fontSize: 25,
         borderRadius: 7,
         paddingVertical: 10,
+    },
+    actionBtnDisabled: {
+        width: '100%',
+        textAlign: 'center',
+        backgroundColor: COLORS.primary,
+        fontSize: 25,
+        borderRadius: 7,
+        paddingVertical: 10,
+        opacity: 0.4,
     },
 });
