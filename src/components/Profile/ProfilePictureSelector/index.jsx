@@ -27,8 +27,7 @@ const ProfilePictureSelector = ({ handleSelection, setImage }) => {
             base64: true,
             mediaTypes: MediaTypeOptions.Images,
         });
-        await handleSelection({ uri: result.assets[0].uri, base64: result.assets[0].base64 });
-        setImage(result.assets[0].uri);
+        await handleSelection(result.assets[0].base64);
     };
     return (
         <TouchableOpacity style={styles.cameraBtn} onPress={handleImageTaking}>

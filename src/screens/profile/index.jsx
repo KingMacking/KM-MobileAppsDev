@@ -10,17 +10,16 @@ const Profile = () => {
     const localId = useSelector((state) => state.auth.user.localId);
     const [updatePicture, { isLoading }] = useUploadProfilePictureMutation();
     const { data: userData, isLoading: isLoadingUserData } = useGetProfileQuery({ localId });
-    const handleSelection = async ({ uri, base64 }) => {
+    const handleSelection = async (base64) => {
         await updatePicture({ localId, image: `data:image/jpeg;base64,${base64}` });
     };
-    console.warn({ userData, isLoadingUserData });
     return (
         <View style={styles.container}>
             <CustomText font={FONTS.regular}>Hola</CustomText>
             <ProfilePicture handleSelection={handleSelection} profileImage={userData?.profileImage} />
             {(isLoading || isLoadingUserData) && (
                 <View style={styles.loaderContainer}>
-                    <ActivityIndicator color={COLORS.primary} size="large" />
+                    <ActivityIndicator color={COLORS.primary} size="large" isLoading={isLoading} />
                 </View>
             )}
         </View>

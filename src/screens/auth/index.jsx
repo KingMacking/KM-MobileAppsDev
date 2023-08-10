@@ -5,8 +5,9 @@ import { useDispatch } from 'react-redux';
 import { styles } from './styles';
 import { CustomText } from '../../components';
 import { useSignInMutation, useSignUpMutation } from '../../store/auth/api';
-import { COLORS, FONTS } from '../../themes';
 import { setUser } from '../../store/auth/auth.slice';
+import { useRegisterUserDataMutation } from '../../store/settings/api';
+import { COLORS, FONTS } from '../../themes';
 
 const AuthScreen = () => {
     const dispatch = useDispatch();
@@ -18,9 +19,11 @@ const AuthScreen = () => {
     const headerTitle = isLogin ? 'Sign in' : 'Sign up';
     const buttonTitle = isLogin ? 'Login' : 'Register';
     const messageText = isLogin ? 'Need an account?' : 'Already have an account?';
+    const emptyUserPicture = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
 
-    const [signIn, { data }] = useSignInMutation();
+    const [signIn] = useSignInMutation();
     const [signUp] = useSignUpMutation();
+    const [registerUserData] = useRegisterUserDataMutation();
     const handleFocus = (type) => {
         if (type === 'email') {
             setBorderColorEmail(COLORS.primary);
@@ -42,7 +45,15 @@ const AuthScreen = () => {
                 const result = await signIn({ email, password });
                 if (result?.data) dispatch(setUser(result.data));
             } else {
-                await signUp({ email, password });
+                const result = await signUp({ email, password });
+                if (result?.data) {
+                    dispatch(setUser(result.data));
+                    await registerUserData({
+                        userData: { email, name: email.split('@')[0], profileImage: emptyUserPicture },
+                        localId: result.data.localId,
+                    });
+                }
+                console.warn(result?.data);
             }
         } catch (error) {
             console.error({ error });

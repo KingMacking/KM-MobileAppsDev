@@ -5,12 +5,14 @@ import { URL_FIREBASE } from '../../../constants/firebase';
 export const settingsApi = createApi({
     reducerPath: 'settingsApi',
     baseQuery: fetchBaseQuery({ baseUrl: URL_FIREBASE }),
+    tagTypes: ['Profile'],
     endpoints: (builder) => ({
         getProfile: builder.query({
             query: ({ localId }) => ({
                 url: `/users/${localId}.json`,
                 method: 'GET',
             }),
+            providesTags: ['Profile'],
         }),
         uploadProfilePicture: builder.mutation({
             query: ({ localId, image }) => ({
@@ -18,8 +20,20 @@ export const settingsApi = createApi({
                 method: 'PATCH',
                 body: { profileImage: image },
             }),
+            invalidatesTags: ['Profile'],
+        }),
+        registerUserData: builder.mutation({
+            query: (credentials) => {
+                const { userData, localId } = credentials;
+                return {
+                    url: `/users/${localId}.json`,
+                    method: 'PUT',
+                    body: userData,
+                };
+            },
+            invalidatesTags: ['Profile'],
         }),
     }),
 });
 
-export const { useGetProfileQuery, useUploadProfilePictureMutation } = settingsApi;
+export const { useGetProfileQuery, useUploadProfilePictureMutation, useRegisterUserDataMutation } = settingsApi;
