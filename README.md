@@ -1,4 +1,4 @@
-# Desafió N°5 - Tab Navigation & Redux
+# Desafió N°6 - Device Features
 
 ## _**Consigna:**_
 - Continuando con tu proyecto, ahora debes integrar una interfaz o característica del dispositivo, recomendamos location o cámara. 
